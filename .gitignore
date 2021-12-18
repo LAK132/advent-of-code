@@ -1,0 +1,14 @@
+.vscode/*
+.vs/*
+ignore/*
+build/*
+
+imgui.ini
+*.exe
+*.pdb
+*.ilk
+*.dump
+*.7z
+*.log
+*.out
+*.txt
