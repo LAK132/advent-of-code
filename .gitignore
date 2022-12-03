@@ -12,3 +12,4 @@ imgui.ini
 *.log
 *.out
 *.txt
+*.dot
