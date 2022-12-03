@@ -2,4 +2,4 @@ aoc = files([
   'main.cpp',
 ])
 
-subdir('2021')
+subdir('2022')
