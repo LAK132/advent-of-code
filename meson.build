@@ -10,7 +10,7 @@ project(
 
 lak_subprj = subproject('lak')
 
-version = lak_subprj.get_variable('version')
+override_options = lak_subprj.get_variable('override_options')
 c_cpp_args = lak_subprj.get_variable('c_cpp_args')
 cpp_args = lak_subprj.get_variable('cpp_args')
 c_args = lak_subprj.get_variable('c_args')
@@ -23,7 +23,7 @@ subdir('src')
 executable(
   'aoc',
   aoc,
-  override_options: 'cpp_std=' + version,
+  override_options: override_options,
   dependencies: [
     lak_subprj.get_variable('lak_dep'),
   ],

@@ -3,3 +3,4 @@ aoc = files([
 ])
 
 subdir('2022')
+subdir('2025')

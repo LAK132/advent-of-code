@@ -2,9 +2,10 @@
 
 #include "lak/char_utils.hpp"
 #include "lak/debug.hpp"
-#include "lak/file.hpp"
 #include "lak/span.hpp"
 #include "lak/test.hpp"
+
+#include "lak/system/file.hpp"
 
 lak::array<char8_t> input_data;
 
@@ -90,7 +91,7 @@ lak::result<uintmax_t> parse_binary(lak::u8string_view str)
 
 	while (iter != str.end())
 	{
-		if_let_ok(const uint8_t new_digit, binary_from_alphanumberic(*iter))
+		if_let_ok (const uint8_t new_digit, binary_from_alphanumberic(*iter))
 		{
 			++iter;
 
@@ -100,7 +101,8 @@ lak::result<uintmax_t> parse_binary(lak::u8string_view str)
 
 			result = new_result | new_digit;
 		}
-		else break; // not binary alphanumeric
+		else
+			break; // not binary alphanumeric
 	}
 
 	return lak::ok_t<uintmax_t>{result};
@@ -125,7 +127,7 @@ lak::result<uintmax_t> parse_decimal(lak::u8string_view str)
 
 	while (iter != str.end())
 	{
-		if_let_ok(const uint8_t new_digit, lak::from_alphanumeric(*iter))
+		if_let_ok (const uint8_t new_digit, lak::from_alphanumeric(*iter))
 		{
 			++iter;
 
@@ -138,7 +140,8 @@ lak::result<uintmax_t> parse_decimal(lak::u8string_view str)
 
 			result = new_result + new_digit;
 		}
-		else break; // not alphanumeric
+		else
+			break; // not alphanumeric
 	}
 
 	return lak::ok_t<uintmax_t>{result};
@@ -183,7 +186,7 @@ lak::result<uintmax_t> parse_hexadecimal(lak::u8string_view str)
 
 	while (iter != str.end())
 	{
-		if_let_ok(const uint8_t new_digit, lak::from_hex_alphanumeric(*iter))
+		if_let_ok (const uint8_t new_digit, lak::from_hex_alphanumeric(*iter))
 		{
 			++iter;
 
@@ -193,7 +196,8 @@ lak::result<uintmax_t> parse_hexadecimal(lak::u8string_view str)
 
 			result = new_result | new_digit;
 		}
-		else break; // not alphanumeric
+		else
+			break; // not alphanumeric
 	}
 
 	return lak::ok_t<uintmax_t>{result};
