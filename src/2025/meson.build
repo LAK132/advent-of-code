@@ -4,4 +4,5 @@ aoc += files([
   'day3.cpp',
   'day4.cpp',
   'day5.cpp',
+  'day6.cpp',
 ])
